@@ -6,7 +6,7 @@ package com.WorkshopProblem;
 *  @param suits contains the category of cards - 4
 *  @param ranks give the ranks to the suits -13
 *  @author Sanjana Rao
-*  @since 5-09-2021
+*  @since 8-09-2021
 */
 public class DeckOfCards 
 {
@@ -24,6 +24,7 @@ public class DeckOfCards
 	/*
 	 * The method initializeGame is used to initialize deckOfCards
 	 * The loop will iterate 52 times.
+	 * We are assigning the ranks to the cards.
 	 */
 	public void initializeGame()
 	{
