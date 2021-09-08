@@ -1,8 +1,5 @@
 package com.WorkshopProblem;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /*
 *  The class DeckOfCards implements the class to initialize the decks, ranks and suits
 *  @param deckOfCards is a static memory with size 52 for 52 cards.
@@ -15,9 +12,9 @@ public class DeckOfCards
 {
     public static final String[] suits = {"Spades", "Hearts", "Diamonds", "Clubs"};
     public static final String[] ranks = {"Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"};
-    public static String[][] numberOfCards = new String[suits.length][ranks.length];
+    public static String[][] cards = new String[suits.length][ranks.length];
 
-	// Constructor to print welcome message and initializing decks,suits and ranks
+	// Constructor to print welcome message
 	public DeckOfCards()
 	{
 		System.out.println("Welcome to the Card Game."); 
@@ -34,7 +31,7 @@ public class DeckOfCards
 		 {
 	         for (int j = 0; j < suits.length; j++) 
 	         {
-	             numberOfCards[i][j] = ranks[j];
+	             cards[i][j] = ranks[j];
 	         }
 		 }
 	}
