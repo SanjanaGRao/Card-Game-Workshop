@@ -1,8 +1,11 @@
 package com.WorkshopProblem;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /*
 *  The class DeckOfCards implements the class to initialize the decks, ranks and suits
-*  @param deckOfCards is a static memory with size 52 for 52 cards.
+*  @param cards is a list which contains 52 cards
 *  @param suits contains the category of cards - 4
 *  @param ranks give the ranks to the suits -13
 *  @author Sanjana Rao
@@ -10,41 +13,32 @@ package com.WorkshopProblem;
 */
 public class DeckOfCards 
 {
-    public static final String[] suits = {"Spades", "Hearts", "Diamonds", "Clubs"};
-    public static final String[] ranks = {"Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"};
-    public static String[][] cards = new String[suits.length][ranks.length];
-
-	// Constructor to print welcome message
-	public DeckOfCards()
+    private List<Cards> numberOfCards;   
+	private final List<String> ranks = new ArrayList<String>(List.of("2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King","Ace"));
+	private final String[] suits = {"Clubs", "Diamonds", "Hearts", "Spades"};
+	
+	//Constructor to display welcome message as well as initialize the list of cards to 52. 
+	public DeckOfCards() 
 	{
-		System.out.println("Welcome to the Card Game."); 
-		
-	}
+        System.out.println("Welcome to the Card Game.");
+		this.numberOfCards = new ArrayList<Cards>(52);
+    }
 	
 	/*
-	 * The method initializeGame is used to initialize deckOfCards
-	 * The loop will iterate 52 times.
-	 * We are assigning the ranks to the cards.
+	 * The method initializeGame is used to initialize the deck
+	 * The for loop iterates 52 times and the ranks are assigned to the suits.
+	 * For 52 cards, inbuilt function add is used to assign ranks and suits.
 	 */
 	public void initializeGame()
 	{
-		 for (int i = 0; i < ranks.length; i++)
-		 {
-	         for (int j = 0; j < suits.length; j++) 
-	         {
-	             cards[i][j] = ranks[j];
-	         }
-		 }
-	}
-
-	/*
-	 * Main function
-	 * Creating an object of class DeckOfCards and calling the function
-	 */
-	public static void main(String[] args)
-	{
-		 DeckOfCards game = new DeckOfCards();
-		 game.initializeGame();
+		 for (int suit = 0; suit < 4; suit++) 
+	        {
+	            for (int rank = 0; rank < 13; rank++) 
+	            {
+	            	numberOfCards.add(new Cards(suits[suit],ranks.get(rank))); 
+	            	System.out.println(numberOfCards);
+	            } 
+	        }
 	}
 }
 
