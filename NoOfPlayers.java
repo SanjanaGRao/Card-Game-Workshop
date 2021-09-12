@@ -2,6 +2,7 @@ package com.WorkshopProblem;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Random;
 /*
 *  The class NoOfPlayers implements the class to get the number of players and initialize cards to them.
 *  @param noOfPlayers tells the number of players playing the card game.
@@ -11,6 +12,9 @@ import java.util.Collections;
 public class NoOfPlayers 
 { 
 	private int noOfPlayers;
+	private static ArrayList<distributeCards> numberOfPlayers;
+    private ArrayList<Integer> sequence;
+    private DeckOfCards playerCards;
 	
 	/*
 	 * Constructor is given to initialize the @param noOfPlayers
@@ -20,8 +24,12 @@ public class NoOfPlayers
 	public NoOfPlayers(int noOfPlayers)
 	    {
 	        this.noOfPlayers = noOfPlayers;
-			DeckOfCards playerCards = new DeckOfCards();
-	        ArrayList<distributeCards> numberOfPlayers = new ArrayList<distributeCards>(noOfPlayers);    
+	        playerCards = new DeckOfCards();
+	        numberOfPlayers = new ArrayList<distributeCards>(noOfPlayers); 
+	        for(int i = 0; i < noOfPlayers ; i++)
+	        {
+	        	numberOfPlayers.add(i,new distributeCards());
+	        }
 	    }
 	
 	/*
@@ -32,11 +40,34 @@ public class NoOfPlayers
 	 */
 	public void PlayerOrder()
 	{
-		ArrayList<Integer> sequence = new ArrayList<Integer>(noOfPlayers);
+		sequence = new ArrayList<Integer>(noOfPlayers);
 	    for(int order=0; order<noOfPlayers; order++)
 	    {
 	    	sequence.add(order);
 	    }
 	    Collections.shuffle(sequence);
 	}
+	
+	/*
+     * In the method DistributeCards, cards are distributed among players. Each player should have different 9 cards.
+     * First the deck is shuffled and an ArrayList is created @param tempCards is used to remove the card given to the player.
+     * Then a random number is generated and a card corresponding to that random number is given to the player according to sequence.
+     * for loop is used to distribute the cards and initially @param playerCard is used to get the player according to the sequence.
+     */
+    public void DistributeCards()
+    {
+    	playerCards.shuffleCards();
+        ArrayList<Cards> tempCards = playerCards.returnCards();
+        Random random = new Random();  
+        for(int i = 0; i < 9 ;i++)
+        {
+            for(int j = 0; j < noOfPlayers; j++)
+            {
+               distributeCards playerCard = numberOfPlayers.get(sequence.get(j));
+               int x = random.nextInt(tempCards.size());
+               playerCard.setCard(tempCards.get(x));
+               tempCards.remove(x);
+            }
+        }  
+    }  
 }

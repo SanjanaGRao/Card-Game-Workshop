@@ -14,7 +14,7 @@ import java.util.List;
 */
 public class DeckOfCards 
 {
-    private List<Cards> PlayerCards;   
+    private ArrayList<Cards> PlayerCards;   
 	private final List<String> ranks = new ArrayList<String>(List.of("2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King","Ace"));
 	private final String[] suits = {"Clubs", "Diamonds", "Hearts", "Spades"};
 	
@@ -50,4 +50,12 @@ public class DeckOfCards
 	{
 		    Collections.shuffle(PlayerCards);
 	}
+	/*
+	 * The method returnCards is getter method to return the cards
+	 * @returns an ArrayList of PlayerCards
+	 */
+    public ArrayList<Cards> returnCards() 
+    {
+        return PlayerCards;
+    }
 }
