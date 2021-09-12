@@ -5,6 +5,7 @@ import java.util.Scanner;
 *  The class CardGameMain has a Main function
 *  @param numberOfPlayers asks the user to input the number of players between 2 - 4.
 *  Once the number of players are obtained, cards are initialized and distributed.
+*  Methods like PlayerOrder, DistributeCards, verifyCards, sortCards and DisplayPlayerCards are called from main function.
 *  @author Sanjana Rao
 *  @since 11-09-2021
 */
@@ -25,6 +26,9 @@ public class CardGameMain
 	     cardGamePlayer.PlayerOrder();
 	     cardGamePlayer.DistributeCards();
 	     cardGamePlayer.verifyCards();
+	     cardGamePlayer.sortCards();
+	     System.out.println(" \n The cards of each Player after sorting: ");
+	     cardGamePlayer.DisplayPlayerCards();
 	     sc.close();
 	}
 }

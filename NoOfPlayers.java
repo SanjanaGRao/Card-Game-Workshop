@@ -111,5 +111,50 @@ public class NoOfPlayers
             System.out.println("No. of Hearts: "+ heart);
             System.out.println("No. of Spades: "+ spade);
         }
-      }
+    }
+    
+    /*
+     * The method sortCards is used to sort the player Cards before displaying the player Cards
+     * for loop is used to get each player and a list is created to get the card present with a player.
+     * Second for loop is used to sort the cards, greatest order of cards is put first - descending order
+     * @param rank1 and @param rank2 are used to get two cards to be compared.
+     * if block compares the ranks of the cards and returns the greatest card and replaces the card in descending order.
+     */
+    public void sortCards()
+    {
+        for (distributeCards player:numberOfPlayers)
+        {
+            List<Cards> p = player.getCard();
+            for(int i = 0; i < p.size(); i++)
+            {
+                for(int j = 0; j < (p.size()-i-1) ; j++)
+                {
+                    Cards rank1=p.get(j);
+                    Cards rank2=p.get(j+1);
+                    if(playerCards.compareTheRanks(rank1,rank2)==rank2)
+                    {
+                        p.set(j, rank2);
+                        p.set(j+1,rank1);
+                    }   
+                }
+            } 
+         }
+     }
+    
+    /*
+     * Method DisplayPlayerCards is used to print the cards present with a player.
+     * for loop is used to get each player and @param s returns the set of cards present with a player.
+     * Another for loop is used to print each card with its rank and suit.
+     */
+    public void DisplayPlayerCards()
+    {
+        for (distributeCards player:numberOfPlayers)
+        {
+            System.out.println("\n Player No.: "+ (numberOfPlayers.indexOf(player)+1));
+            System.out.println(" -------------");
+            List<Cards> s = player.getCard();
+            for(Cards i : s)
+            	System.out.println(i.getRanks()+" of "+i.getSuits());     
+        }
+    }
 }

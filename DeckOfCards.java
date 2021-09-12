@@ -57,4 +57,18 @@ public class DeckOfCards
     {
         return PlayerCards;
     }
+    
+    /*
+     * Method compareTheRanks is a method to compare the two ranks
+     * @param rank1 is the first rank
+     * @param rank2 is the second rank which is to be compared
+     * @returns rank1 or rank2 which has a low value.
+     */
+    public Cards compareTheRanks(Cards rank1,Cards rank2) 
+    {
+        if(ranks.indexOf(rank1.getRanks()) > ranks.indexOf(rank2.getRanks()))
+            return rank1;   
+        else
+            return rank2;
+    }
 }
