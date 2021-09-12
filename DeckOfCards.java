@@ -66,7 +66,7 @@ public class DeckOfCards
      */
     public Cards compareTheRanks(Cards rank1,Cards rank2) 
     {
-        if(ranks.indexOf(rank1.getRanks()) > ranks.indexOf(rank2.getRanks()))
+        if(ranks.indexOf(rank1.getRanks()) < ranks.indexOf(rank2.getRanks()))
             return rank1;   
         else
             return rank2;
