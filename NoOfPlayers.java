@@ -116,9 +116,9 @@ public class NoOfPlayers
     /*
      * The method sortCards is used to sort the player Cards before displaying the player Cards
      * for loop is used to get each player and a list is created to get the card present with a player.
-     * Second for loop is used to sort the cards, greatest order of cards is put first - descending order
+     * Second for loop is used to sort the cards, lower rank is put first - ascending order
      * @param rank1 and @param rank2 are used to get two cards to be compared.
-     * if block compares the ranks of the cards and returns the greatest card and replaces the card in descending order.
+     * if block compares the ranks of the cards and returns the lowest card and replaces the card in descending order.
      */
     public void sortCards()
     {
