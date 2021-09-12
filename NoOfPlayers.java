@@ -1,5 +1,6 @@
 package com.WorkshopProblem;
 
+import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
@@ -25,6 +26,7 @@ public class NoOfPlayers
 	    {
 	        this.noOfPlayers = noOfPlayers;
 	        playerCards = new DeckOfCards();
+	        playerCards.initializeGame();
 	        numberOfPlayers = new ArrayList<distributeCards>(noOfPlayers); 
 	        for(int i = 0; i < noOfPlayers ; i++)
 	        {
@@ -41,7 +43,7 @@ public class NoOfPlayers
 	public void PlayerOrder()
 	{
 		sequence = new ArrayList<Integer>(noOfPlayers);
-	    for(int order=0; order<noOfPlayers; order++)
+	    for(int order=0; order < noOfPlayers; order++)
 	    {
 	    	sequence.add(order);
 	    }
@@ -69,5 +71,45 @@ public class NoOfPlayers
                tempCards.remove(x);
             }
         }  
-    }  
+    } 
+    
+    /*
+     * Method verifyCards gives the number of suits present with each player.
+     * for loop is used to display the cards of each player
+     * Initially @param spade, @param heart, @param club and @param diamond are initialized to 0.
+     * @param j of String type is used to get the suits from each player and switch case is used to count the number of club, spade, heart and diamonds
+     * each player has
+     * Finally, the statistics is displayed.
+     */
+    public void verifyCards()
+    {   
+        for (distributeCards player:numberOfPlayers)
+        {
+            List<Cards> p = player.getCard();
+            int spade=0,heart=0,diamond=0,club=0;
+            for(Cards i : p)
+            {  
+                String j = i.getSuits();
+                
+                switch(j)
+                {
+	                case "Spades":spade++;
+	                			  break;
+	                case "Diamonds":diamond++;
+	                				break;
+	                case "Hearts":heart++;
+	                			  break;
+	                case "Clubs":club++;
+	                			 break;
+	                default: System.out.println("Invalid suit.");
+                }
+            }
+            System.out.println("\n Player Number: "+ (numberOfPlayers.indexOf(player)+1));
+            System.out.println(" ----------------");
+            System.out.println("No. of Clubs: "+ club);
+            System.out.println("No. of Diamonds: "+ diamond);
+            System.out.println("No. of Hearts: "+ heart);
+            System.out.println("No. of Spades: "+ spade);
+        }
+      }
 }

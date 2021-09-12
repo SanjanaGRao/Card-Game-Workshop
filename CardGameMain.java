@@ -21,7 +21,10 @@ public class CardGameMain
 	            System.out.println("Number of players can only be between 2 to 4.");
 	            numberOfPlayers = sc.nextInt();
 	        }
-	     NoOfPlayers player = new NoOfPlayers(numberOfPlayers);	
+	     NoOfPlayers cardGamePlayer = new NoOfPlayers(numberOfPlayers);	
+	     cardGamePlayer.PlayerOrder();
+	     cardGamePlayer.DistributeCards();
+	     cardGamePlayer.verifyCards();
 	     sc.close();
 	}
 }

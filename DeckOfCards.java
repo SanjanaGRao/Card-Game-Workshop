@@ -15,8 +15,8 @@ import java.util.List;
 public class DeckOfCards 
 {
     private ArrayList<Cards> PlayerCards;   
-	private final List<String> ranks = new ArrayList<String>(List.of("2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King","Ace"));
-	private final String[] suits = {"Clubs", "Diamonds", "Hearts", "Spades"};
+	private static final List<String> ranks = new ArrayList<String>(List.of("2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King","Ace"));
+	private static final String[] suits = {"Clubs", "Diamonds", "Hearts", "Spades"};
 	
 	//Constructor to display welcome message as well as initialize the list of cards to 52. 
 	public DeckOfCards() 
@@ -36,8 +36,7 @@ public class DeckOfCards
 	        {
 	            for (int rank = 0; rank < 13; rank++) 
 	            {
-	            	PlayerCards.add(new Cards(suits[suit],ranks.get(rank))); 
-	            	System.out.println(PlayerCards);
+	            	returnCards().add(new Cards(suits[suit],ranks.get(rank))); 
 	            } 
 	        }
 	}
@@ -48,7 +47,7 @@ public class DeckOfCards
 	 */
 	public void shuffleCards()
 	{
-		    Collections.shuffle(PlayerCards);
+		    Collections.shuffle(returnCards());
 	}
 	/*
 	 * The method returnCards is getter method to return the cards
