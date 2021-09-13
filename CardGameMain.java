@@ -20,7 +20,6 @@ public class CardGameMain
 	     if(numberOfPlayers < 2||numberOfPlayers > 4)
 	        {
 	            System.out.println("Number of players can only be between 2 to 4.");
-	            numberOfPlayers = sc.nextInt();
 	        }
 	     NoOfPlayers cardGamePlayer = new NoOfPlayers(numberOfPlayers);	
 	     cardGamePlayer.PlayerOrder();
